@@ -1,7 +1,11 @@
+% !TEX root = main.tex
 %------------------------------------
 %        	  page setup
 %------------------------------------
-% set up of all pages and add the first pages (abstract and TOC)
+% documentclass must live in the root file so TexpadTeX
+% treats this as LaTeX. Otherwise \input{...} is the TeX
+% primitive and looks for a file name that includes the braces.
+\documentclass[twoside, 11pt, a4paper]{article}
 \input{setup/styles/setup_pages}
 
 
