@@ -1,23 +1,21 @@
 % !TEX root = main.tex
 %------------------------------------
-%        	  page setup
+%  Root file — Texifier needs documentclass,
+%  begin/end{document} and \input{...tex} here
+%  so every chapter is marked SUB and openable.
+%  Extra files (README, PDFs, …): setup/dependencies.tex
 %------------------------------------
-% documentclass must live in the root file so TexpadTeX
-% treats this as LaTeX. Otherwise \input{...} is the TeX
-% primitive and looks for a file name that includes the braces.
 \documentclass[twoside, 11pt, a4paper]{article}
-\input{setup/styles/setup_pages}
+\usepackage{standalone}
 
+\input{setup/includesAndUses.tex}
 
-%------------------------------------
-%        	   Content
-%------------------------------------
+\begin{document}
 
-\include{subfiles/01-introduction}
+\input{setup/styles/front_matter.tex}
 
+\input{subfiles/01-introduction.tex}
 
-%------------------------------------
-%            setup end
-%------------------------------------
-% references, declaration
-\input{setup/styles/setup_end}
+\input{setup/styles/setup_end.tex}
+
+\end{document}

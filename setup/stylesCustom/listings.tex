@@ -29,9 +29,17 @@
     literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1
 }
 
-% Names as used in the thesis. The underlying listings names differ.
+% Short names. Dialects like [Sharp]C break \lstalias on TexpadTeX 1.6,
+% so C# is a full language. Use language=Cpp or language=CSharp.
 \lstalias{Cpp}{C++}
-\lstalias{CSharp}[Sharp]{C}
+\lstdefinelanguage{CSharp}{
+  morekeywords={abstract,as,base,bool,break,byte,case,catch,char,checked,class,const,continue,decimal,default,delegate,do,double,else,enum,event,explicit,extern,false,finally,fixed,float,for,foreach,goto,if,implicit,in,int,interface,internal,is,lock,long,namespace,new,null,object,operator,out,override,params,private,protected,public,readonly,ref,return,sbyte,sealed,short,sizeof,stackalloc,static,string,struct,switch,this,throw,true,try,typeof,uint,ulong,unchecked,unsafe,ushort,using,virtual,void,volatile,while,var,async,await,get,set,value,yield},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]'
+}
 
 % Languages that listings 1.6 (TexpadTeX) does not ship.
 \lstdefinelanguage{TypeScript}{

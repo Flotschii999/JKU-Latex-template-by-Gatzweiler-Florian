@@ -1,119 +1,118 @@
 %------------------------------------
 %           config
 %------------------------------------
-% Hier steht, was auf dem Deckblatt steht und welche Teile
-% der Arbeit gedruckt werden. Mögliche Werte für Schalter
-% und Abschlüsse stehen in characteristics.tex.
-% PDF-Titel und Autor für Texifier stehen in texifier.tex.
+% Cover fields and which parts of the thesis are printed.
+% Possible switch and degree values live in characteristics.tex.
+% Single-line PDF title and author for Texifier live in texifier.tex.
 %
-% Schalter: \show ein, \hide aus.
+% Switches: \show on, \hide off.
 %------------------------------------
 
 
 %------------------------------------
-%           Was gedruckt wird
+%           What is printed
 %------------------------------------
-% JKU-Deckblatt.
+% JKU cover sheet.
 \def\showJKUCover			{\show}
 
-% Englisches Abstract.
+% English abstract.
 \def\showAbstract			{\show}
 
-% Deutsche Kurzfassung. Die Arbeit selbst bleibt Englisch.
+% German Kurzfassung. The thesis body stays English.
 \def\showAbstractBoth		{\show}
 
-% Inhaltsverzeichnis.
+% Table of contents.
 \def\showListOfContent		{\show}
 
-% Abbildungsverzeichnis, im Literaturteil.
+% List of figures, in the literature section.
 \def\showListOfFigures		{\show}
 
-% Tabellenverzeichnis, im Literaturteil.
+% List of tables, in the literature section.
 \def\showListOfTables		{\show}
 
-% Listingverzeichnis, im Literaturteil.
+% List of listings, in the literature section.
 \def\showListOfSourceCode	{\show}
 
-% Literaturverzeichnis aus references/references.bib.
+% Bibliography from references/references.bib.
 \def\showReferences			{\show}
 
-% Eidesstattliche Erklärung, englisch und deutsch.
+% Statutory declaration, English and German.
 \def\showDeclaration		{\show}
 
-% "Submitted by" und der Name auf dem Deckblatt.
+% "Submitted by" and the author name on the cover.
 \def\showSubmitter			{\show}
 
-% Betreuer auf dem Deckblatt. Der Name steht in \supervisor.
-% Bei einer Dissertation lautet die Zeile "Supervisor and First Examiner".
+% Supervisor on the cover. The name is \supervisor.
+% For a dissertation the line reads "Supervisor and First Examiner".
 \def\showSupervisor			{\show}
 
-% "Submitted at" auf dem Deckblatt. Der Text steht in \submittedAt.
+% "Submitted at" on the cover. The text is \submittedAt.
 \def\showSubmittedAt		{\show}
 
-% Datum auf dem Deckblatt. Der Text steht in \date.
+% Date on the cover. The text is \date.
 \def\showDate				{\show}
 
 
 %------------------------------------
-%           Satz
+%           Print layout
 %------------------------------------
-% \book    Doppelseitig. Kapitel beginnen auf einer rechten Seite.
-%          Dazwischen liegt bei Bedarf eine leere linke Seite.
-% \normal  Einseitig. Keine leeren Rückseiten.
-%          Ein Kapitel beginnt weiterhin auf einer neuen Seite.
-% Die Ränder sind in beiden Fällen gleich.
+% \book    Two-sided. Chapters open on a right-hand page.
+%          Inserts a blank left page when needed.
+% \normal  One-sided. No blank verso pages.
+%          A chapter still starts on a new page.
+% Margins are the same in both modes.
 \def\printLayout			{\book}
 
 
 %------------------------------------
-%           Art der Arbeit
+%           Thesis type
 %------------------------------------
-% \DisThesis, \DipThesis, \MasThesis oder \BacThesis.
-% Steuert die Bezeichnung auf dem Deckblatt und in der Erklärung.
+% \DisThesis, \DipThesis, \MasThesis or \BacThesis.
+% Controls the wording on the cover and in the declaration.
 \def\type					{\MasThesis}
 
 
 %------------------------------------
-%           Personen
+%           People
 %------------------------------------
-% Reihenfolge auf dem Deckblatt: Nachname Vorname.
+% Cover order: last name, first name.
 \def\name					{Author Name}
 
-% Erstbetreuer. \\ bricht die Zeile auf dem Deckblatt um.
-% Leer lassen, wenn \showSupervisor auf \hide steht.
+% Primary supervisor. \\ breaks the line on the cover.
+% Leave empty if \showSupervisor is \hide.
 \def\supervisor				{Supervisor Name}
 
-% Zweitbetreuer, nur bei einer Dissertation. Leer = nicht anzeigen.
+% Second examiner, dissertations only. Empty = hidden.
 \def\secondexaminer			{}
 
-% Mitbetreuung. Leer = nicht anzeigen.
+% Co-supervisor. Empty = hidden.
 \def\assist					{}
 
-% Firmenbetreuer. Beide leer lassen, wenn es keinen gibt.
-% \company ist die Firma, \supervisorComp der Name.
+% Company supervisor. Leave both empty if unused.
+% \company is the company, \supervisorComp is the person.
 \def\company				{}
 \def\supervisorComp			{}
 
 
 %------------------------------------
-%           Abschluss und Studium
+%           Degree and study
 %------------------------------------
 % \degree: \DegreeMSc, \DegreeBSc, \DegreeDI, \DegreeDrTW, \DegreeMag, ...
 % \study:  \CompSc, \AI, \Inf, \TechnischeW, ...
-% Die ausgeschriebenen Texte stehen in characteristics.tex.
+% Full strings are defined in characteristics.tex.
 \def\degree					{Degree}
 \def\study					{Study Program}
 
 
 %------------------------------------
-%           Deckblatt
+%           Cover
 %------------------------------------
-% Titel auf dem Deckblatt. \\ beginnt eine neue Zeile.
-% Der einzeilige PDF-Titel steht in texifier.tex.
+% Cover title. \\ starts a new line.
+% The single-line PDF title is in texifier.tex.
 \def\CoverTitle				{Thesis Title}
 
-% Datum auf dem Deckblatt, freier Text.
+% Date on the cover, free text.
 \def\date					{Month Year}
 
-% Institut unter "Submitted at". \\ beginnt eine neue Zeile.
+% Institute under "Submitted at". \\ starts a new line.
 \def\submittedAt			{Institute of\newline System Software}

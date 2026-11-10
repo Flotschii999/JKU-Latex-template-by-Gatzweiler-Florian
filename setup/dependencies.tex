@@ -1,11 +1,14 @@
+% !TEX root = main.tex
 %-----------------------------------------------------------------------
-% Dependencies for Texifier.
-% A file that is \input or \include is already part of the project.
-% Add a line here for files Texifier would otherwise ignore,
-% for example this manual or a source file loaded with \lstinputlisting.
+%         	 dependencies
+% Only files Texifier cannot see via \input{...tex} / \includegraphics.
+% %force-texpad-dependency is active; %_force-... is ignored.
 %-----------------------------------------------------------------------
 
-%_force-texpad-dependency: ReadMe.tex
+%force-texpad-dependency: README.md
+%force-texpad-dependency: references/references.bib
+%force-texpad-dependency: setup/stylesCover/jku_en.pdf
+%force-texpad-dependency: setup/stylesCover/arr.pdf
 
-% Example for an external source file:
-%_force-texpad-dependency: code/Example.kt
+% Enable when the file exists:
+%_force-texpad-dependency: code/example.cpp

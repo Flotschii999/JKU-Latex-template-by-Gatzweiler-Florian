@@ -1,3 +1,4 @@
+% !TEX root = main.tex
 %------------------------------------
 %     lists, references, declaration
 %------------------------------------
@@ -38,16 +39,10 @@
 \endgroup
 }{}
 
-%------------------------------------
-% cv & declaration
 % Curriculum vitae. Place the file at CV/cv.pdf and uncomment:
 % \includepdf[pages=-]{CV/cv.pdf}
 \ifthenelse{\equal{\showDeclaration}{\show}}{
 \cleartoleftpageNotMainSec
-\input{subfiles/general/declaration}
-\input{subfiles/general/declaration_de}
+\input{subfiles/general/declaration.tex}
+\input{subfiles/general/declaration_de.tex}
 }{}
-%------------------------------------
-%         End of Document
-%------------------------------------
-\end{document}

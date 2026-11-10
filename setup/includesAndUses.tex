@@ -1,3 +1,4 @@
+% !TEX root = main.tex
 \usepackage[utf8]{inputenc}
 \usepackage{ifthen}
 
@@ -43,7 +44,7 @@
 % to use circles for the images!
 \usepackage{tikz}
 
-% Damit listings die Kapitel mitanzeigt!
+% Number listings by section
 \usepackage{chngcntr}
 
 % prevent for widow and orphans
@@ -65,14 +66,33 @@
 %------------------------------------
 %      include Files
 %------------------------------------
-% \input, not \include: these files belong to the preamble
-\input{setup/stylesCustom/listings}
+% Paths with .tex so Texifier lists each file as SUB.
+\input{setup/stylesCustom/listings.tex}
+\input{setup/characteristics.tex}
+\input{setup/config.tex}
+\input{setup/styles/overrides.tex}
+\input{setup/texifier.tex}
+\input{setup/dependencies.tex}
 
-% settings like language and so on
-\input{setup/characteristics}
-\input{setup/config}
-\input{setup/styles/overrides}
-\input{setup/texifier}
+%------------------------------------
+%      page macros (print layout)
+%------------------------------------
+% Side mode comes from \printLayout in setup/config.tex (\book or \normal).
+\makeatletter
+\ifthenelse{\equal{\printLayout}{\normal}}{%
+  \@twosidefalse
+  \@mparswitchfalse
+}{}
+\makeatother
 
-% Add subfiles to the project that are not recognised by Texifier.
-\input{setup/dependencies}
+\gdef\cleartoleftpageNotMainSec{\clearpage{\thispagestyle{empty}\cleardoublepage}}
+\gdef\doclearpage{\null\hbox{}\thispagestyle{empty}\newpage}
+\gdef\cleartoleftpage{%
+  \newpage
+  \ifeven\value{page}\doclearpage\fi
+}
+\gdef\sectionInit{\thispagestyle{empty}\cleardoublepage\thispagestyle{fancy}}
+\gdef\emptySecPage{\cleardoublepage}
+\gdef\emptySecPageOld{\clearpage{\thispagestyle{empty}\cleardoublepage}}
+\let\stdsection\section
+\gdef\section{\emptySecPage\stdsection}
