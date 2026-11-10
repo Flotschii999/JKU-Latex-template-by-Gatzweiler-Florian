@@ -1,0 +1,21 @@
+%------------------------------------
+%           Texifier / PDF
+%------------------------------------
+% Einzeiliger Titel und Autor. Das Deckblatt nutzt \CoverTitle
+% aus config.tex, weil der Titel dort umbrochen wird.
+% Diese Datei wird nach overrides.tex geladen, damit sie
+% \title{\CoverTitle} ersetzt.
+%------------------------------------
+\title{Thesis Title}
+\author{Author Name}
+
+\hypersetup{
+    pdftitle		= {Thesis Title},
+    pdfauthor		= {Author Name},
+    colorlinks		= false,
+    anchorcolor		= red,
+    linkcolor		= blue,
+    urlcolor		= blue,
+    citecolor		= red,
+    pdfpagemode		= FullScreen,
+}

@@ -1,0 +1,78 @@
+\usepackage[utf8]{inputenc}
+\usepackage{ifthen}
+
+\usepackage{fancyhdr} % Fancy headings
+% TexpadTeX is LaTeX 2017. fancyhdr calls \@newbaseline, which
+% that kernel does not define. Without this, every page break errors.
+\makeatletter
+\ifx\@newbaseline\@undefined
+  \let\@newbaseline\normalsize
+\fi
+\makeatother
+\usepackage{amsmath} % mathematical features 
+\usepackage{multirow}
+\usepackage{xspace}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{listings} % source code printing
+\usepackage{booktabs,colortbl} % more commands for tables and coloring
+\usepackage{geometry}
+\usepackage[ngerman,english]{babel}
+\usepackage{graphicx} % figures
+\usepackage{float} % better positioning for floats (figures, tables)
+\usepackage[T1]{fontenc}
+
+% Numbering for equations with section.equation number
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+% Numbering for figures with section.figure number
+\renewcommand\thefigure{\arabic{section}.\arabic{figure}}
+% Numbering for tables with section.table number
+\renewcommand\thetable{\arabic{section}.\arabic{table}}
+
+
+%------------------------------------
+%      added for this project
+%------------------------------------
+
+% Table of contents, list of figures and list of tables
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+
+% to include the cv!
+\usepackage{pdfpages}
+
+% to use circles for the images!
+\usepackage{tikz}
+
+% Damit listings die Kapitel mitanzeigt!
+\usepackage{chngcntr}
+
+% prevent for widow and orphans
+\usepackage[all]{nowidow}
+
+% links and pdf metadata; loaded once, after the other packages
+\usepackage{hyperref}
+
+% to set uppercase and lowercase on cites!! (cRef and Cref!)
+\usepackage{cleveref}
+
+% to set captions of listings invisable
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+
+% to use linebreaks inside urls!!
+\usepackage{xurl}
+
+
+%------------------------------------
+%      include Files
+%------------------------------------
+% \input, not \include: these files belong to the preamble
+\input{setup/stylesCustom/listings}
+
+% settings like language and so on
+\input{setup/characteristics}
+\input{setup/config}
+\input{setup/styles/overrides}
+\input{setup/texifier}
+
+% Add subfiles to the project that are not recognised by Texifier.
+\input{setup/dependencies}

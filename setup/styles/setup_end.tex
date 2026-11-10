@@ -1,0 +1,53 @@
+%------------------------------------
+%     lists, references, declaration
+%------------------------------------
+\sectionInit
+\section{Literature}
+
+\ifthenelse{\equal{\showListOfFigures}{\show}}{
+\begin{minipage}[b]{1\linewidth}
+\begingroup
+  \listoffigures
+\endgroup
+\end{minipage}
+}{}
+
+\ifthenelse{\equal{\showListOfSourceCode}{\show}}{
+\begin{minipage}[b]{1\linewidth}
+\begingroup
+  \vspace{1em}
+  \lstlistoflistings
+\endgroup
+\end{minipage}
+}{}
+
+\ifthenelse{\equal{\showListOfTables}{\show}}{
+\begin{minipage}[b]{1\linewidth}
+\begingroup
+  \vspace{1em}
+  \listoftables
+\endgroup
+\end{minipage}
+}{}
+
+\ifthenelse{\equal{\showReferences}{\show}}{
+\begingroup
+  \cleartoleftpageNotMainSec
+  \renewcommand{\bibsection}{\section*{References}}
+  \bibliography{references/references}
+\endgroup
+}{}
+
+%------------------------------------
+% cv & declaration
+% Curriculum vitae. Place the file at CV/cv.pdf and uncomment:
+% \includepdf[pages=-]{CV/cv.pdf}
+\ifthenelse{\equal{\showDeclaration}{\show}}{
+\cleartoleftpageNotMainSec
+\input{subfiles/general/declaration}
+\input{subfiles/general/declaration_de}
+}{}
+%------------------------------------
+%         End of Document
+%------------------------------------
+\end{document}

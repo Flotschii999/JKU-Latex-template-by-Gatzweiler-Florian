@@ -1,0 +1,119 @@
+%------------------------------------
+%           config
+%------------------------------------
+% Hier steht, was auf dem Deckblatt steht und welche Teile
+% der Arbeit gedruckt werden. Mögliche Werte für Schalter
+% und Abschlüsse stehen in characteristics.tex.
+% PDF-Titel und Autor für Texifier stehen in texifier.tex.
+%
+% Schalter: \show ein, \hide aus.
+%------------------------------------
+
+
+%------------------------------------
+%           Was gedruckt wird
+%------------------------------------
+% JKU-Deckblatt.
+\def\showJKUCover			{\show}
+
+% Englisches Abstract.
+\def\showAbstract			{\show}
+
+% Deutsche Kurzfassung. Die Arbeit selbst bleibt Englisch.
+\def\showAbstractBoth		{\show}
+
+% Inhaltsverzeichnis.
+\def\showListOfContent		{\show}
+
+% Abbildungsverzeichnis, im Literaturteil.
+\def\showListOfFigures		{\show}
+
+% Tabellenverzeichnis, im Literaturteil.
+\def\showListOfTables		{\show}
+
+% Listingverzeichnis, im Literaturteil.
+\def\showListOfSourceCode	{\show}
+
+% Literaturverzeichnis aus references/references.bib.
+\def\showReferences			{\show}
+
+% Eidesstattliche Erklärung, englisch und deutsch.
+\def\showDeclaration		{\show}
+
+% "Submitted by" und der Name auf dem Deckblatt.
+\def\showSubmitter			{\show}
+
+% Betreuer auf dem Deckblatt. Der Name steht in \supervisor.
+% Bei einer Dissertation lautet die Zeile "Supervisor and First Examiner".
+\def\showSupervisor			{\show}
+
+% "Submitted at" auf dem Deckblatt. Der Text steht in \submittedAt.
+\def\showSubmittedAt		{\show}
+
+% Datum auf dem Deckblatt. Der Text steht in \date.
+\def\showDate				{\show}
+
+
+%------------------------------------
+%           Satz
+%------------------------------------
+% \book    Doppelseitig. Kapitel beginnen auf einer rechten Seite.
+%          Dazwischen liegt bei Bedarf eine leere linke Seite.
+% \normal  Einseitig. Keine leeren Rückseiten.
+%          Ein Kapitel beginnt weiterhin auf einer neuen Seite.
+% Die Ränder sind in beiden Fällen gleich.
+\def\printLayout			{\book}
+
+
+%------------------------------------
+%           Art der Arbeit
+%------------------------------------
+% \DisThesis, \DipThesis, \MasThesis oder \BacThesis.
+% Steuert die Bezeichnung auf dem Deckblatt und in der Erklärung.
+\def\type					{\MasThesis}
+
+
+%------------------------------------
+%           Personen
+%------------------------------------
+% Reihenfolge auf dem Deckblatt: Nachname Vorname.
+\def\name					{Author Name}
+
+% Erstbetreuer. \\ bricht die Zeile auf dem Deckblatt um.
+% Leer lassen, wenn \showSupervisor auf \hide steht.
+\def\supervisor				{Supervisor Name}
+
+% Zweitbetreuer, nur bei einer Dissertation. Leer = nicht anzeigen.
+\def\secondexaminer			{}
+
+% Mitbetreuung. Leer = nicht anzeigen.
+\def\assist					{}
+
+% Firmenbetreuer. Beide leer lassen, wenn es keinen gibt.
+% \company ist die Firma, \supervisorComp der Name.
+\def\company				{}
+\def\supervisorComp			{}
+
+
+%------------------------------------
+%           Abschluss und Studium
+%------------------------------------
+% \degree: \DegreeMSc, \DegreeBSc, \DegreeDI, \DegreeDrTW, \DegreeMag, ...
+% \study:  \CompSc, \AI, \Inf, \TechnischeW, ...
+% Die ausgeschriebenen Texte stehen in characteristics.tex.
+\def\degree					{Degree}
+\def\study					{Study Program}
+
+
+%------------------------------------
+%           Deckblatt
+%------------------------------------
+% Titel auf dem Deckblatt. \\ beginnt eine neue Zeile.
+% Der einzeilige PDF-Titel steht in texifier.tex.
+\def\CoverTitle				{Thesis Title}
+
+% Datum auf dem Deckblatt, freier Text.
+\def\date					{Month Year}
+
+% Institut unter "Submitted at". \\ beginnt eine neue Zeile.
+\def\submittedAt			{Institute of\newline System Software}

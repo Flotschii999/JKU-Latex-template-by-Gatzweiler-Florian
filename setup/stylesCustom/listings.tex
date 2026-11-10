@@ -1,0 +1,113 @@
+% Shared listing style. The language is chosen per listing,
+% for example [language=Kotlin]. How to add a language: ReadMe.tex.
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{courier}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\ttfamily,
+    keywordstyle=[2]\color{teal}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    commentstyle=\color{green!50!black}\ttfamily,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b,
+    showspaces=false,
+    showstringspaces=false,
+    xleftmargin=17pt,
+    framexleftmargin=17pt,
+    framexrightmargin=5pt,
+    framexbottommargin=4pt,
+    rulecolor=\color{black},
+    literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {Ä}{{\"A}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1 {ß}{{\ss}}1
+}
+
+% Names as used in the thesis. The underlying listings names differ.
+\lstalias{Cpp}{C++}
+\lstalias{CSharp}[Sharp]{C}
+
+% Languages that listings 1.6 (TexpadTeX) does not ship.
+\lstdefinelanguage{TypeScript}{
+  morekeywords={abstract,any,as,async,await,boolean,break,case,catch,class,const,constructor,continue,debugger,declare,default,delete,do,else,enum,export,extends,false,finally,for,from,function,get,if,implements,import,in,instanceof,interface,let,module,namespace,never,new,null,number,of,package,private,protected,public,readonly,return,set,static,string,super,switch,this,throw,true,try,type,typeof,undefined,var,void,while,yield},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]`
+}
+
+\lstdefinelanguage{Kotlin}{
+  morekeywords={abstract,actual,annotation,as,break,by,catch,class,companion,const,constructor,continue,crossinline,data,delegate,do,else,enum,expect,external,false,final,finally,for,fun,get,if,import,in,infix,init,inline,inner,interface,internal,is,lateinit,noinline,null,object,open,operator,out,override,package,private,protected,public,reified,return,sealed,set,super,suspend,tailrec,this,throw,true,try,typealias,typeof,val,var,vararg,when,where,while},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{Vue}{
+  morekeywords={const,let,var,function,return,if,else,for,while,import,from,export,default,true,false,null,undefined,ref,reactive,computed,watch,onMounted,defineProps,defineEmits,setup},
+  morekeywords=[2]{template,script,style,v-if,v-else,v-else-if,v-for,v-model,v-bind,v-on,v-show,v-slot,v-html,v-text},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morecomment=[s]{<!--}{-->},
+  morestring=[b]",
+  morestring=[b]',
+  morestring=[b]`
+}
+
+\lstdefinelanguage{JSON}{
+  morekeywords={true,false,null},
+  sensitive=true,
+  morestring=[b]"
+}
+
+\lstdefinelanguage{Go}{
+  morekeywords={break,case,chan,const,continue,default,defer,else,fallthrough,for,func,go,goto,if,import,interface,map,package,range,return,select,struct,switch,type,var,true,false,nil,int,string,bool,error},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  morestring=[b]`
+}
+
+\lstdefinelanguage{Rust}{
+  morekeywords={as,async,await,break,const,continue,crate,else,enum,extern,false,fn,for,if,impl,in,let,loop,match,mod,move,mut,pub,ref,return,self,Self,static,struct,super,trait,true,type,unsafe,use,where,while},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]"
+}
+
+% JavaScript and CSS exist in current listings, not in every TexpadTeX.
+\makeatletter
+\@ifundefined{lstlang@javascript@0}{%
+  \lstdefinelanguage{JavaScript}{
+    morekeywords={break,case,catch,class,const,continue,debugger,default,delete,do,else,export,extends,false,finally,for,function,if,import,in,instanceof,let,new,null,return,super,switch,this,throw,true,try,typeof,undefined,var,void,while,yield,async,await,of,from},
+    sensitive=true,
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[b]`
+  }
+}{}
+\@ifundefined{lstlang@css@0}{%
+  \lstdefinelanguage{CSS}{
+    sensitive=false,
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]'
+  }
+}{}
+\makeatother

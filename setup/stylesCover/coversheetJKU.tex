@@ -1,0 +1,95 @@
+\textwidth 16.7cm
+\textheight 25cm
+\topmargin -2.7cm
+\oddsidemargin 0.25cm
+\parindent 0pt
+\pagestyle{empty}
+
+\DeclareFontShape{OT1}{cmss}{m}{n}
+  {<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88><29.86><35.83>%
+   <42.99><51.59><67><77.38>cmss10}{}
+\DeclareFontShape{OT1}{cmss}{bx}{n}
+  {<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88><29.86><35.83>%
+   <42.99><51.59><67><77.38>cmssbx10}{}
+\makeatletter
+\def\Huge{\@setfontsize\Huge{29.86pt}{36}}
+\makeatother
+
+\unitlength 1cm
+\sffamily
+\begin{picture}(16.7,0)
+\put(11.5,-2.5){\includegraphics[width=5.2cm]{setup/stylesCover/jku_en.pdf}}
+\put(12.9,-4.2){\begin{minipage}[t]{3.9cm}\footnotesize%
+
+\ifthenelse{\equal{\showSubmitter}{\show}}{
+ Submitted by\\
+{\bfseries\name}%
+}{}
+
+\ifthenelse{\equal{\showSubmittedAt}{\show}}{
+\vskip 4mm%
+ Submitted at\\
+{\bfseries\submittedAt}%
+}{}
+
+\ifthenelse{\equal{\showSupervisor}{\show}}{
+\vskip 4mm%
+\ifcase\type
+ Supervisor and\\ First Examiner\\
+\else
+ Supervisor\\
+\fi
+{\bfseries\supervisor}%
+}{}
+
+\ifx\secondexaminer\empty\else
+\vskip 4mm%
+ Second Examiner\\
+{\bfseries\secondexaminer}%
+\fi
+
+\ifx\supervisorComp\empty\else
+\vskip 4mm%
+ Supervisor {\company}\\
+{\bfseries\supervisorComp}%
+\fi
+
+\ifx\assist\empty\else
+\vskip 4mm%
+ Co-Supervisor\\
+{\bfseries\assist}%
+\fi
+
+\ifthenelse{\equal{\showDate}{\show}}{
+  \vskip 4mm%
+  \date
+}{}
+
+\end{minipage}}
+\put(12.9,-25){\begin{minipage}[t]{3.9cm}\footnotesize%
+{\bfseries JOHANNES KEPLER\\
+ UNIVERSITY
+LINZ}\\
+Altenbergerstra{\ss}e 69\\
+4040 Linz, \"Osterreich\\
+www.jku.at\\
+DVR 0093696
+\end{minipage}}
+\put(0,-12.2){\begin{minipage}[b]{12cm}\Huge{\bfseries\CoverTitle}\end{minipage}}
+\put(0,-17.2){\includegraphics[width=4.4cm]{setup/stylesCover/arr.pdf}}
+\put(0,-18.3){\begin{minipage}[t]{12cm}%
+{\large\ifcase\type Doctoral \or Diploma \or Master \or Bachelor \fi Thesis}%
+
+\vskip 2mm%
+to obtain the academic degree of%
+
+\vskip 3mm%
+{\large\degree}
+
+\vskip 3mm%
+in the \ifcase\type Doctoral \or Diploma \or Master's \or Bachelor's \fi Program
+
+\vskip 3mm%
+{\large\study}
+\end{minipage}}
+\end{picture}

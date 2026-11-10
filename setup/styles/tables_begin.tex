@@ -1,0 +1,17 @@
+%------------------------------------
+%       table of contents 
+%------------------------------------
+% configure table of contents
+% \makeatletter
+% \renewcommand*\tableofcontents{\@starttoc{toc}}
+% \makeatother
+%------------------------------------
+
+\setcounter{tocdepth}{2}
+\ifthenelse{\equal{\showListOfContent}{\show}}{
+% set page header
+\cleartoleftpageNotMainSec
+\fancyhead[L]{Contents}
+% create table of contents
+\tableofcontents
+}{}
