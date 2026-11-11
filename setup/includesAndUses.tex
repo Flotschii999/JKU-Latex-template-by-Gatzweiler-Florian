@@ -77,22 +77,41 @@
 %------------------------------------
 %      page macros (print layout)
 %------------------------------------
-% Side mode comes from \printLayout in setup/config.tex (\book or \normal).
+% \printLayout in config.tex:
+%   \book   — twoside; sections open on a right-hand (odd) page.
+%             A blank left page may be inserted; it stays empty (no header).
+%   \normal — oneside; sections just start on the next page. No blank verso.
+%
+% Chapters use:  \sectionInit\section{...}
+% \sectionInit is a no-op; the single page break lives in \section.
+% \stdsection skips that break (abstracts, declarations, starred titles).
 \makeatletter
+% Blank pages from \cleardoublepage must not keep fancyhdr headers.
+\renewcommand*{\cleardoublepage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page
+    \else
+      \hbox{}\thispagestyle{empty}\newpage
+      \if@twocolumn\hbox{}\newpage\fi
+    \fi
+  \fi
+}
+
 \ifthenelse{\equal{\printLayout}{\normal}}{%
   \@twosidefalse
   \@mparswitchfalse
-}{}
+  \newcommand{\clearforsection}{\clearpage}%
+}{%
+  \newcommand{\clearforsection}{\cleardoublepage}%
+}
 \makeatother
 
-\gdef\cleartoleftpageNotMainSec{\clearpage{\thispagestyle{empty}\cleardoublepage}}
-\gdef\doclearpage{\null\hbox{}\thispagestyle{empty}\newpage}
-\gdef\cleartoleftpage{%
-  \newpage
-  \ifeven\value{page}\doclearpage\fi
-}
-\gdef\sectionInit{\thispagestyle{empty}\cleardoublepage\thispagestyle{fancy}}
-\gdef\emptySecPage{\cleardoublepage}
-\gdef\emptySecPageOld{\clearpage{\thispagestyle{empty}\cleardoublepage}}
+\newcommand{\cleartoleftpageNotMainSec}{\clearforsection}
+\newcommand{\emptySecPage}{\clearforsection}
+\newcommand{\emptySecPageOld}{\clearforsection}
+% Kept for existing chapter files; the break is done by \section.
+\newcommand{\sectionInit}{}
+
 \let\stdsection\section
-\gdef\section{\emptySecPage\stdsection}
+\renewcommand{\section}{\clearforsection\stdsection}
