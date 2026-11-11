@@ -2,6 +2,16 @@
 %------------------------------------
 %     lists, references, declaration
 %------------------------------------
+% "Literature" is the container for lists + bibliography.
+% \showReferences only toggles the bibliography itself.
+% The section heading appears only if at least one part is \show.
+\ifthenelse{\equal{\showListOfFigures}{\show}}{\def\showLiterature{\show}}{}
+\ifthenelse{\equal{\showListOfSourceCode}{\show}}{\def\showLiterature{\show}}{}
+\ifthenelse{\equal{\showListOfTables}{\show}}{\def\showLiterature{\show}}{}
+\ifthenelse{\equal{\showReferences}{\show}}{\def\showLiterature{\show}}{}
+\providecommand{\showLiterature}{\hide}
+
+\ifthenelse{\equal{\showLiterature}{\show}}{
 \sectionInit
 \section{Literature}
 
@@ -37,6 +47,7 @@
   \renewcommand{\bibsection}{\stdsection*{References}}
   \bibliography{references/references}
 \endgroup
+}{}
 }{}
 
 % Curriculum vitae. Place the file at CV/cv.pdf and uncomment:
