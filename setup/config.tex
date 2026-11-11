@@ -1,9 +1,11 @@
+% !TEX root = main.tex
 %------------------------------------
 %           config
 %------------------------------------
 % Cover fields and which parts of the thesis are printed.
 % Possible switch and degree values live in characteristics.tex.
-% Single-line PDF title and author for Texifier live in texifier.tex.
+% PDF info values (\PdfTitle, \PdfAuthor) are set below and
+% applied in pdfSettings.tex.
 %
 % Switches: \show on, \hide off.
 %------------------------------------
@@ -12,8 +14,11 @@
 %------------------------------------
 %           What is printed
 %------------------------------------
-% JKU cover sheet.
-\def\showJKUCover			{\show}
+% Built-in cover page (subfiles/cover/cover.tex).
+\def\showCover				{\show}
+
+% Official topic sheet (subfiles/Topic/Topic.pdf).
+\def\showTopic				{\show}
 
 % English abstract.
 \def\showAbstract			{\show}
@@ -39,19 +44,6 @@
 % Statutory declaration, English and German.
 \def\showDeclaration		{\show}
 
-% "Submitted by" and the author name on the cover.
-\def\showSubmitter			{\show}
-
-% Supervisor on the cover. The name is \supervisor.
-% For a dissertation the line reads "Supervisor and First Examiner".
-\def\showSupervisor			{\show}
-
-% "Submitted at" on the cover. The text is \submittedAt.
-\def\showSubmittedAt		{\show}
-
-% Date on the cover. The text is \date.
-\def\showDate				{\show}
-
 
 %------------------------------------
 %           Print layout
@@ -73,8 +65,27 @@
 
 
 %------------------------------------
-%           People
+%           Cover
 %------------------------------------
+% Field values and field switches for the built-in cover
+% (subfiles/cover/). Only needed while \showCover is \show.
+% If you use your own cover, you can delete this whole section
+% (keep \showCover / \showTopic above under "What is printed").
+%------------------------------------
+
+% "Submitted by" and the author name on the cover.
+\def\showSubmitter			{\show}
+
+% Supervisor on the cover. The name is \supervisor.
+% For a dissertation the line reads "Supervisor and First Examiner".
+\def\showSupervisor			{\show}
+
+% "Submitted at" on the cover. The text is \submittedAt.
+\def\showSubmittedAt		{\show}
+
+% Date on the cover. The text is \date.
+\def\showDate				{\show}
+
 % Cover order: last name, first name.
 \def\name					{Author Name}
 
@@ -93,22 +104,14 @@
 \def\company				{}
 \def\supervisorComp			{}
 
-
-%------------------------------------
-%           Degree and study
-%------------------------------------
 % \degree: \DegreeMSc, \DegreeBSc, \DegreeDI, \DegreeDrTW, \DegreeMag, ...
 % \study:  \CompSc, \AI, \Inf, \TechnischeW, ...
 % Full strings are defined in characteristics.tex.
 \def\degree					{Degree}
 \def\study					{Study Program}
 
-
-%------------------------------------
-%           Cover
-%------------------------------------
 % Cover title. \\ starts a new line.
-% The single-line PDF title is in texifier.tex.
+% The single-line PDF title is \PdfTitle below.
 \def\CoverTitle				{Thesis Title}
 
 % Date on the cover, free text.
@@ -116,3 +119,15 @@
 
 % Institute under "Submitted at". \\ starts a new line.
 \def\submittedAt			{Institute of\newline System Software}
+
+
+%------------------------------------
+%           PDF metadata
+%------------------------------------
+% Applied by setup/pdfSettings.tex (hyperref document info).
+% \PdfTitle must be a single line (no \\). \CoverTitle may wrap.
+% \PdfAuthor uses \name from the Cover section; set it explicitly
+% if you remove that section.
+%------------------------------------
+\def\PdfTitle				{Thesis Title}
+\def\PdfAuthor				{\name}

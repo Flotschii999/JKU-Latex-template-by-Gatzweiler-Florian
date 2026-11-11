@@ -1,0 +1,23 @@
+% !TEX root = main.tex
+%------------------------------------
+%           pdfSettings
+%------------------------------------
+% Applies PDF document info and hyperref options.
+% Editable values (\PdfTitle, \PdfAuthor) live in config.tex.
+% Loaded after overrides.tex so \title/\author win over any
+% leftover title set elsewhere.
+%------------------------------------
+
+\title{\PdfTitle}
+\author{\PdfAuthor}
+
+\hypersetup{
+    pdftitle		= {\PdfTitle},
+    pdfauthor		= {\PdfAuthor},
+    colorlinks		= false,
+    anchorcolor		= red,
+    linkcolor		= blue,
+    urlcolor		= blue,
+    citecolor		= red,
+    pdfpagemode		= FullScreen,
+}

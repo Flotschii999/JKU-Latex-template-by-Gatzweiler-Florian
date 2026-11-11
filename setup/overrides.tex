@@ -1,16 +1,18 @@
+% !TEX root = main.tex
 %------------------------------------
-%      	template overrides! 
+%           overrides
 %------------------------------------
-\title{\CoverTitle}
+% Template-wide tweaks that are not user content:
+% typography, bibliography style, cleveref names, helpers.
+%------------------------------------
 
-
 %------------------------------------
-%    Circle for hyref numbers! 
+%    Circle for hyref numbers!
 %------------------------------------
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
 %------------------------------------
-%      	bibliographystyle 
+%      	bibliographystyle
 %------------------------------------
 \bibliographystyle{extern/habbrv}
 
@@ -22,9 +24,6 @@
 \brokenpenalty=10000
 \setlength\emergencystretch{\hsize}
 
-
-% Page commands (\cleartoleftpageNotMainSec, \sectionInit, ...)
-% are defined in setup_pages.tex after this file is read.
 
 %------------------------------------
 % solves weird spacing from option twoside!
@@ -43,8 +42,8 @@
    \let\oldnumberline\numberline
    \renewcommand{\numberline}{\oldnumberline\hskip\labelsep}}
   {\par\endgroup\vspace{1em}}
-  
-  
+
+
 %------------------------------------
 % cRef
 %------------------------------------

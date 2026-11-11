@@ -1,17 +1,29 @@
 % !TEX root = main.tex
 %------------------------------------
-%         	front matter
+%           frontmatter
 %------------------------------------
-% insert coversheet
-\ifthenelse{\equal{\showJKUCover}{\show}}{
-  \input{setup/stylesCover/coversheetJKU.tex}
+% Everything between \begin{document} and the first chapter:
+%   1. Cover and optional topic sheet
+%   2. Body page geometry and fancyhdr setup
+%   3. Roman pages: abstracts and table of contents
+%   4. Switch to arabic page numbers for the thesis body
+%
+% Called from main.tex right after \begin{document}.
+%------------------------------------
+
+% Cover
+\ifthenelse{\equal{\showCover}{\show}}{
+  \input{subfiles/cover/cover.tex}
 }{}
 \cleardoublepage
 % The cover sets \sffamily for its own layout. The body is Computer Modern.
 \normalfont
 \selectlanguage{english}
-% Official topic sheet. Place the file at Topic/Topic.pdf and uncomment:
-% \includepdf[pages=-]{Topic/Topic.pdf}
+
+% Official topic sheet. Place the file at subfiles/Topic/Topic.pdf.
+\ifthenelse{\equal{\showTopic}{\show}}{
+  \includepdf[pages=-]{subfiles/Topic/Topic.pdf}
+}{}
 
 % Body of the institute guidelines: scrartcl, 11pt, a4paper, parskip=half.
 % typearea DIV=calc resolves to DIV=8 (oneside, BCOR=0):

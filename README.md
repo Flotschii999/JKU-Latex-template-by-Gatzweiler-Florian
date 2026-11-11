@@ -10,7 +10,7 @@ Extra project files (this README, cover PDFs, `.bib`) live only in `setup/depend
 
 1. Clone or download the ZIP.
 2. Open **`main.tex`** in Texifier.
-3. Edit `setup/config.tex` and `setup/texifier.tex`.
+3. Edit `setup/config.tex` (cover fields, print switches, PDF title/author).
 
 ## Layout
 
